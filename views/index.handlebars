@@ -81,9 +81,14 @@
         function placeMarker(pin) {
           var coords = pin.coordinates;
           var price = pin.price;
+          var days_until = pin.days_until;
           var latLng = new google.maps.LatLng(coords[0],coords[1]);
 
           if (priceInRange(price) == false) {
+            return false;
+          }
+
+          if (dateInRange(days_until) == false) {
             return false;
           }
 

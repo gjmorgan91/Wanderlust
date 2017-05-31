@@ -26,11 +26,11 @@ function dateInRange(daysUntil) {
       case "2 weeks":
           rangeMax = 14;
           break;
-      case "1 months":
+      case "1 month":
           rangeMax = 30;
           break;
       default:
-          priceMax = 10000;
+          rangeMax = 10000;
   }
   if (daysUntil > rangeMax) {
     return false;
