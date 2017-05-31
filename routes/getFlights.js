@@ -6,7 +6,7 @@ request.get({
   headers: "application/json"
 }, function(err, response, body) {
   skyScan = JSON.parse(body);
-  console.log(skyScan);
+  // console.log(skyScan);
 })
 
 // request.post({
