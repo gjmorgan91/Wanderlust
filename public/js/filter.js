@@ -16,7 +16,7 @@ function priceInRange(price) {
   }
 }
 
-/* function dateInRange(date) {
+function dateInRange(daysUntil) {
   var rangeMax;
   var dateRange = $("#dateRanges").val();
   switch(dateRange) {
@@ -26,12 +26,13 @@ function priceInRange(price) {
       case "2 weeks":
           rangeMax = 14;
           break;
-      case "2 months":
-          rangeMax = 21;
+      case "1 months":
+          rangeMax = 30;
           break;
       default:
           priceMax = 10000;
   }
-  var daysUntil = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
-  if daysUntil
-} */
+  if (daysUntil > rangeMax) {
+    return false;
+  }
+}

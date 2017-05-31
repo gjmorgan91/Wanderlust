@@ -32,7 +32,7 @@
     <!-- Filtering UI -->
     <div class="search container">
       <div class="row justify-content-center">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           <div>
             Departing San Diego Airport - SAN
           </div>
@@ -40,7 +40,7 @@
             (based on your current location)
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           Trips under
           <select class="form-control" style="display:inline-block;" id="priceLevels" onchange="initMap()">
             <option>$500</option>
@@ -48,7 +48,7 @@
             <option selected="selected">$2000+</option>
           </select>
         </div>
-        <!--<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           Leaving within
           <select class="form-control" style="display:inline-block;" id="dateRanges" onchange="initMap()">
             <option>1 week</option>
@@ -56,7 +56,7 @@
             <option>1 month</option>
             <option selected="selected">2+ months</option>
           </select>
-        </div>-->
+        </div>
       </div>
     </div>
     <div id="map"></div>
@@ -95,7 +95,7 @@
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
             // generate URL to Google Flights for relevant search query
-            infowindow.setContent( "<div id='infowindow'><h3>"+ pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + "2017-07-01" + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>");
+            infowindow.setContent( "<div id='infowindow'><h3>"+ pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<div><h5>Date:</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + "2017-07-01" + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>");
             infowindow.open(map, marker);
           });
         }
