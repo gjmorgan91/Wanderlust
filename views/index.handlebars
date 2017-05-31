@@ -100,7 +100,7 @@
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
             // generate URL to Google Flights for relevant search query
-            infowindow.setContent( "<div id='infowindow'><h3>"+ pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<div><h5>Date: " + pin.date + "</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + "2017-07-01" + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>");
+            infowindow.setContent( "<div id='infowindow'><h3>"+ pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<div><h5>Date: " + pin.date + "</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + pin.date + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>");
             infowindow.open(map, marker);
           });
         }
