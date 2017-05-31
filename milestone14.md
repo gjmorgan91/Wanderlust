@@ -4,7 +4,7 @@ Completely redid how the data is handled on the backend, reformatting for scrape
 
 *Yacoub:*
 
-tbd
+I worked on filtering flights based on user input for budget as well as dates willing to travel. This required me to change our form and to pass that data into a function which then parses the JSON looking for flights in that criteria.
 
 *Sandra:*
 
