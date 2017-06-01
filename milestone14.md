@@ -8,7 +8,7 @@ I worked on filtering flights based on user input for budget as well as dates wi
 
 *Sandra:*
 
-tbd
+I worked on creating the JSON file that was used to provide data for the app to meet our specific needs oto have what the Google Maps API required, what the Google Flights API required, and fitting within the allocated 50 queries. Contributed to implementing infowindow pop-up functionality.
 
 *Greg:*
 
@@ -17,11 +17,14 @@ Was waiting on getting the flight information from the rest of the group still. 
 Screenshot of static, search bar
 ![](http://i.imgur.com/luDJ4Ln.png)
 
+
 Infowindow with UI elements, placeholders for the flight information is available
+
+
 ![](http://i.imgur.com/FCAnESz.png)
 
 ![](http://i.imgur.com/6eafWtr.png)
 
-*No more screenshots, app is live:*
+*App is live at:*
 
 https://find-wanderlust-app.herokuapp.com/
