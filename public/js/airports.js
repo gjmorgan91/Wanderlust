@@ -462,7 +462,7 @@ eqfeed_callback(
     "price": 470,
     "date": "2017-07-03",
     "days_until": 29,
-    "image": "http://www.livinginsingapore.org/wp-content/uploads/2016/05/24939069370_693bf7b49d_k.jpg"
+    "image": "http://www.livinginsingapore.org/wp-content/uploads/2016/05/24939069370_693bf7b49d_k.jpg",
     "trip": "https://www.tripadvisor.com/Tourism-g294262-Singapore-Vacations.html"
  },
   {
