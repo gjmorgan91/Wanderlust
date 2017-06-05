@@ -1,39 +1,9 @@
 // built with http://www.convertcsv.com/csv-to-json.htm
 eqfeed_callback(
   {"airports":[
-    {
-    "airport": "Cape Town International Airport",
-    "place": "Cape Town",
-    "country": "South Africa",
-    "iata": "CPT",
-    "coordinates": [-33.9648017883,18.6016998291],
-    "price": 1030,
-    "date": "2017-07-01",
-    "days_until": 1
- },
-  {
-    "airport": "Jorge Chavez International Airport",
-    "place": "Lima",
-    "country": "Peru",
-    "iata": "LIM",
-    "coordinates": [-12.021900177,-77.1143035889],
-    "price": 1150,
-    "date": "2017-07-01",
-    "days_until": 1
- },
-  {
-    "airport": "Astor Piazzola International Airport",
-    "place": "Buenos Aires",
-    "country": "Argentina",
-    "iata": "MDQ",
-    "coordinates": [-37.9342,-57.5733],
-    "price": 1050,
-    "date": "2017-07-01",
-    "days_until": 1
- },
   {
     "airport": "Amsterdam Airport Schiphol",
-    "place": "Haarlemmermeer, North Holland",
+    "place": "Amsterdam",
     "country": "The Netherlands",
     "iata": "AMS",
     "coordinates": [52.3086013794, 4.763889789579999],
@@ -47,13 +17,13 @@ eqfeed_callback(
     "country": "United States",
     "iata": "ATL",
     "coordinates": [33.63669967651367, -84.4281005859375],
-    "price": 1300,
+    "price": 300,
     "date": "2017-07-01",
     "days_until": 1
  },
   {
     "airport": "Barcelona–El Prat Airport",
-    "place": "El Prat, Catalonia",
+    "place": "Barcelona",
     "country": "Spain",
     "iata": "BCN",
     "coordinates": [41.297100067139, 2.0784599781036],
@@ -63,7 +33,7 @@ eqfeed_callback(
  },
   {
     "airport": "Suvarnabhumi Airport",
-    "place": "Bang Phli, Samut Prakan",
+    "place": "Bangkok",
     "country": "Thailand",
     "iata": "BKK",
     "coordinates": [13.681099891662598, 100.74700164794922],
@@ -73,7 +43,7 @@ eqfeed_callback(
  },
   {
     "airport": "Chhatrapati Shivaji International Airport",
-    "place": "Mumbai, Maharashtra",
+    "place": "Mumbai",
     "country": "India",
     "iata": "BOM",
     "coordinates": [19.0886993408, 72.8678970337],
@@ -83,7 +53,7 @@ eqfeed_callback(
  },
   {
     "airport": "Guangzhou Baiyun International Airport",
-    "place": "Baiyun-Huadu, Guangzhou, Guangdong",
+    "place": "Guangzhou",
     "country": "China",
     "iata": "CAN",
     "coordinates": [23.39240074157715, 113.29900360107422],
@@ -93,7 +63,7 @@ eqfeed_callback(
  },
   {
     "airport": "Charles de Gaulle Airport",
-    "place": "Roissy-en-France, Île-de-France",
+    "place": "Paris",
     "country": "France",
     "iata": "CDG",
     "coordinates": [49.0127983093, 2.54999995232],
@@ -103,7 +73,7 @@ eqfeed_callback(
  },
   {
     "airport": "Soekarno–Hatta International Airport",
-    "place": "Tangerang, Banten",
+    "place": "Jakarta",
     "country": "Indonesia",
     "iata": "CGK",
     "coordinates": [-6.1255698204,106.65599823],
@@ -123,7 +93,7 @@ eqfeed_callback(
  },
   {
     "airport": "Chengdu Shuangliu International Airport",
-    "place": "Shuangliu-Wuhou, Chengdu, Sichuan",
+    "place": "Chengdu",
     "country": "China",
     "iata": "CTU",
     "coordinates": [30.578500747680664, 103.9469985961914],
@@ -153,13 +123,13 @@ eqfeed_callback(
  },
   {
     "airport": "Dallas/Fort Worth International Airport",
-    "place": "Dallas-Fort Worth, Texas",
+    "place": "Dallas, Texas",
     "country": "United States",
     "iata": "DFW",
     "coordinates": [32.89680099487305, -97.03800201416016],
-    "price": 850,
-    "date": "2017-07-05",
-    "days_until": 5
+    "price": 100,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Hamad International Airport",
@@ -173,7 +143,7 @@ eqfeed_callback(
  },
   {
     "airport": "Dubai International Airport",
-    "place": "Garhoud, Dubai",
+    "place": "Dubai",
     "country": "United Arab Emirates",
     "iata": "DXB",
     "coordinates": [25.2527999878,55.3643989563],
@@ -183,17 +153,17 @@ eqfeed_callback(
  },
   {
     "airport": "Newark Liberty International Airport",
-    "place": "Newark, New Jersey",
+    "place": "Jersey City",
     "country": "United States",
     "iata": "EWR",
     "coordinates": [40.692501068115234, -74.168701171875],
-    "price": 850,
+    "price": 450,
     "date": "2017-07-05",
     "days_until": 5
  },
   {
     "airport": "Leonardo da Vinci–Fiumicino Airport",
-    "place": "Fiumicino, Lazio",
+    "place": "Rome",
     "country": "Italy",
     "iata": "FCO",
     "coordinates": [41.8002778, 12.2388889],
@@ -203,7 +173,7 @@ eqfeed_callback(
  },
   {
     "airport": "Frankfurt Airport",
-    "place": "Frankfurt, Hesse",
+    "place": "Frankfurt",
     "country": "Germany",
     "iata": "FRA",
     "coordinates": [50.0333333,8.5705556],
@@ -223,7 +193,7 @@ eqfeed_callback(
  },
   {
     "airport": "Tokyo International Airport",
-    "place": "Ōta, Tokyo",
+    "place": "Tokyo",
     "country": "Japan",
     "iata": "HND",
     "coordinates": [35.552299,139.779999],
@@ -237,13 +207,13 @@ eqfeed_callback(
     "country": "United States",
     "iata": "IAH",
     "coordinates": [29.984399795532227, -95.34140014648438],
-    "price": 250,
+    "price": 150,
     "date": "2017-07-12",
     "days_until": 12
  },
   {
     "airport": "Seoul Incheon International Airport",
-    "place": "Incheon",
+    "place": "Seoul",
     "country": "Republic of Korea",
     "iata": "ICN",
     "coordinates": [37.46910095214844, 126.45099639892578],
@@ -253,7 +223,7 @@ eqfeed_callback(
  },
   {
     "airport": "Istanbul Atatürk Airport",
-    "place": "Yeşilköy, Istanbul",
+    "place": "Istanbul",
     "country": "Turkey",
     "iata": "IST",
     "coordinates": [40.9768981934, 28.814599990799998],
@@ -263,17 +233,17 @@ eqfeed_callback(
  },
   {
     "airport": "John F. Kennedy International Airport",
-    "place": "Queens, New York City, New York",
+    "place": "New York City, New York",
     "country": "United States",
     "iata": "JFK",
     "coordinates": [40.63980103, -73.77890015],
-    "price": 400,
-    "date": "2017-07-12",
-    "days_until": 12
+    "price": 200,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Kunming Changshui International Airport",
-    "place": "Guandu, Kunming, Yunnan",
+    "place": "Kunming",
     "country": "China",
     "iata": "KMG",
     "coordinates": [25.1019444,102.9291667],
@@ -283,7 +253,7 @@ eqfeed_callback(
  },
   {
     "airport": "Kuala Lumpur International Airport",
-    "place": "Sepang, Selangor",
+    "place": "Sepang",
     "country": "Malaysia",
     "iata": "KUL",
     "coordinates": [2.745579957962,101.70999908447],
@@ -323,7 +293,7 @@ eqfeed_callback(
  },
   {
     "airport": "Heathrow Airport",
-    "place": "Hillingdon, London",
+    "place": "London",
     "country": "United Kingdom",
     "iata": "LHR",
     "coordinates": [51.4706, -0.461941],
@@ -333,13 +303,13 @@ eqfeed_callback(
  },
   {
     "airport": "Madrid Barajas Airport",
-    "place": "Barajas, Madrid",
+    "place": "Madrid",
     "country": "Spain",
     "iata": "MAD",
     "coordinates": [40.471926,-3.56264],
-    "price": 1000,
-    "date": "2017-07-21",
-    "days_until": 21
+    "price": 700,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Orlando International Airport",
@@ -347,33 +317,33 @@ eqfeed_callback(
     "country": "United States",
     "iata": "MCO",
     "coordinates": [28.429399490356445, -81.30899810791016],
-    "price": 400,
-    "date": "2017-07-21",
-    "days_until": 21
+    "price": 100,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Benito Juárez International Airport",
-    "place": "Venustiano Carranza, Mexico City",
+    "place": "Mexico City",
     "country": "Mexico",
     "iata": "MEX",
     "coordinates": [19.4363, -99.072098],
-    "price": 1000,
-    "date": "2017-07-21",
-    "days_until": 21
+    "price": 150,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Miami International Airport",
-    "place": "Miami-Dade County, Florida",
+    "place": "Miami, Florida",
     "country": "United States",
     "iata": "MIA",
     "coordinates": [25.79319953918457,-80.29060363769531],
-    "price": 300,
-    "date": "2017-07-21",
-    "days_until": 21
+    "price": 130,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Ninoy Aquino International Airport",
-    "place": "Pasay/Parañaque, Metro Manila",
+    "place": "Manila",
     "country": "Philippines",
     "iata": "MNL",
     "coordinates": [14.5086,121.019997],
@@ -393,7 +363,7 @@ eqfeed_callback(
  },
   {
     "airport": "Munich Airport",
-    "place": "Freising, Bavaria",
+    "place": "Freising",
     "country": "Germany",
     "iata": "MUC",
     "coordinates": [48.353801727295, 11.786100387573],
@@ -403,7 +373,7 @@ eqfeed_callback(
  },
   {
     "airport": "Narita International Airport",
-    "place": "Narita, Chiba",
+    "place": "Narita",
     "country": "Japan",
     "iata": "NRT",
     "coordinates": [35.7647018433, 140.386001587],
@@ -423,7 +393,7 @@ eqfeed_callback(
  },
   {
     "airport": "Beijing Capital International Airport",
-    "place": "Chaoyang-Shunyi, Beijing",
+    "place": "Beijing",
     "country": "China",
     "iata": "PEK",
     "coordinates": [40.080101013183594, 116.58499908447266],
@@ -443,7 +413,7 @@ eqfeed_callback(
  },
   {
     "airport": "Shanghai Pudong International Airport",
-    "place": "Pudong, Shanghai",
+    "place": "Shanghai (Pudong)",
     "country": "China",
     "iata": "PVG",
     "coordinates": [31.143400192260742,121.80500030517578],
@@ -453,7 +423,7 @@ eqfeed_callback(
  },
   {
     "airport": "Seattle-Tacoma International Airport",
-    "place": "SeaTac, Washington",
+    "place": "Seattle, Washington",
     "country": "United States",
     "iata": "SEA",
     "coordinates": [47.44900131225586,-122.30899810791016],
@@ -463,17 +433,18 @@ eqfeed_callback(
  },
   {
     "airport": "San Francisco International Airport",
-    "place": "San Mateo County, California",
+    "place": "San Francisco, California",
     "country": "United States",
     "iata": "SFO",
     "coordinates": [37.61899948120117,-122.375],
     "price": 100,
     "date": "2017-08-06",
-    "days_until": 70
+    "days_until": 70,
+    "image": "http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1444253482/DG2015-san-francisco.jpg?itok=MdRJm2Zo"
  },
   {
     "airport": "Shanghai Hongqiao International Airport",
-    "place": "Changning-Minhang, Shanghai",
+    "place": "Shanghai (Hongqiao)",
     "country": "China",
     "iata": "SHA",
     "coordinates": [31.197900772094727,121.33599853515625],
@@ -483,17 +454,17 @@ eqfeed_callback(
  },
   {
     "airport": "Singapore Changi Airport",
-    "place": "Changi, Singapore",
+    "place": "Singapore",
     "country": "Singapore",
     "iata": "SIN",
     "coordinates": [1.35019, 103.994003],
-    "price": 1050,
-    "date": "2017-08-06",
-    "days_until": 70
+    "price": 470,
+    "date": "2017-07-03",
+    "days_until": 29
  },
   {
     "airport": "Sydney Kingsford-Smith Airport",
-    "place": "Mascot, Sydney, New South Wales",
+    "place": "Sydney",
     "country": "Australia",
     "iata": "SYD",
     "coordinates": [-33.94609832763672,151.177001953125],
@@ -503,7 +474,7 @@ eqfeed_callback(
  },
   {
     "airport": "Shenzhen Bao'an International Airport",
-    "place": "Bao'an, Shenzhen, Guangdong",
+    "place": "Shenzhen",
     "country": "China",
     "iata": "SZX",
     "coordinates": [22.639299392700195,113.81099700927734],
@@ -513,7 +484,7 @@ eqfeed_callback(
  },
   {
     "airport": "Taiwan Taoyuan International Airport",
-    "place": "Dayuan, Taoyuan",
+    "place": "Taoyuan",
     "country": "Taiwan",
     "iata": "TPE",
     "coordinates": [25.0777, 121.233002],
@@ -523,7 +494,7 @@ eqfeed_callback(
  },
   {
     "airport": "Toronto Pearson International Airport",
-    "place": "Mississauga, Ontario",
+    "place": "Ontario",
     "country": "Canada",
     "iata": "YYZ",
     "coordinates": [43.6772003174,-79.63059997559999],
@@ -533,7 +504,7 @@ eqfeed_callback(
  },
   {
     "airport": "Astor Piazzola International Airport",
-    "place": "Mar del Plata",
+    "place": "Buenos Aires",
     "country": "Argentina",
     "iata": "MDQ",
     "coordinates": [-37.9342,-57.5733],
@@ -549,7 +520,7 @@ eqfeed_callback(
     "coordinates": [-33.9648017883,18.6016998291],
     "price": 1030,
     "date": "2017-07-01",
-    "days_until": 1
+    "days_until": 29
  },
   {
     "airport": "Jorge Chavez International Airport",
@@ -557,9 +528,9 @@ eqfeed_callback(
     "country": "Peru",
     "iata": "LIM",
     "coordinates": [-12.021900177,-77.1143035889],
-    "price": 1150,
-    "date": "2017-07-01",
-    "days_until": 1
+    "price": 425,
+    "date": "2017-07-03",
+    "days_until": 29
  }
   ]}
 );

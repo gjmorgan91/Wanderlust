@@ -11,16 +11,35 @@
 
   </head>
   <body>
-    <!-- tutorial modal -->
+    <!--
+     
+    <div id="myModal" class="modal1">
+      <div class="modal-content" id="document">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Welcome to Find Wanderlust!</h3>
+        </div>
+        <div id="forms">
+          <h5 id="intro" style="text-align: center">Love to travel? Want to love to travel?</h5>
+          <p>Wanderlust is an application for everyone from globe trotters to first timers. Made to enable your inner adverturer, we help you explore the possibilities of the world with minimal know-how. Just by knowing <b>where you want to leave from, when you want to travel</b> and <b>how much you want to spend</b>, we offer you everything available to you, just a few clicks away.
+          <div>
+            <a class="waves-effect waves-light btn" onclick="hideModal(1)" style="width:100%">Start Exploring!</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+    
     <div class="modal" id="myModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title">Welcome to Wanderlust!</h3>
+            <h3 class="modal-title">Welcome to Find Wanderlust!</h3>
           </div>
           <div class="modal-body">
             <p>Ever want to travel on a dime but don't know where to start?</p>
-            <p>Wanderlust gives you a friendly way to explore cheap travel opportunities in the near future.</p>
+            <p>Find Wanderlust is an application for everyone from globe trotters to first timers. Made to enable your inner adverturer, we help you explore the possibilities of the world with minimal know-how. </p>
+            <p>Just by knowing <b>where you want to leave from, when you want to travel</b> and <b>how much you want to spend</b>, we offer you everything available to you, just a few clicks away.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Start exploring!</button>
@@ -28,6 +47,7 @@
         </div>
       </div>
     </div>
+  
 
     <!-- Filtering UI -->
     <div class="search container">
@@ -43,9 +63,11 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
           Budget
           <select class="form-control" style="display:inline-block;" id="priceLevels" onchange="initMap()">
+            <!--<option>$100</option>
+            <option>$250</option>-->
             <option>$500</option>
             <option>$1000</option>
-            <option selected="selected">$1001+</option>
+            <option selected="selected">$1000+</option>
           </select>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -100,7 +122,7 @@
           google.maps.event.addListener(marker, 'click', function(){
             infowindow.close(); // Close previously opened infowindow
             // generate URL to Google Flights for relevant search query
-            infowindow.setContent( "<div id='infowindow'><h3>"+ pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<div><h5>Date: " + pin.date + "</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + pin.date + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>");
+            infowindow.setContent( "<div id='infowindow'>"+ "<div><img src='" + pin.image +"' alt='TEST' height='200px'></div><h3>" + pin.place +"</h3></div>" + "<div><h5>Est Low Price: $" + pin.price + "</h5></div>" + "<div><h5>Date: " + pin.date + "</h5></div>" + "<a target='_blank' href='https://www.google.com/flights/#search;f=" + "SAN" + ";t=" + pin.iata + ";d=" + pin.date + ";tt=o" + ";mp=" + pin.price + "'>Buy Tickets Now!</a>"+ "<div> </div>" + "<div><a target='_blank' href='https://www.airbnb.com/s/"+pin.place+"/homes?checkin=2017-07-03&checkout=2017-07-10" +"'>Search AirBnBs for this location</a></div>");
             infowindow.open(map, marker);
           });
         }

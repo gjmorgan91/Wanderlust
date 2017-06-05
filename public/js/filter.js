@@ -2,6 +2,12 @@ function priceInRange(price) {
   var priceMax;
   var priceLevel = $("#priceLevels").val();
   switch(priceLevel) {
+      /*case "$100":
+        priceMax = 100;
+        break;
+      case "$250";
+        priceMax = 250;
+        break;*/
       case "$500":
           priceMax = 500;
           break;
