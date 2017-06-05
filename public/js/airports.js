@@ -329,7 +329,8 @@ eqfeed_callback(
     "coordinates": [19.4363, -99.072098],
     "price": 150,
     "date": "2017-07-03",
-    "days_until": 29
+    "days_until": 29,
+    "image": "https://lonelyplanetimages.imgix.net/mastheads/93931301.jpg?sharp=10&vib=20&w=1200"
  },
   {
     "airport": "Miami International Airport",
@@ -460,7 +461,9 @@ eqfeed_callback(
     "coordinates": [1.35019, 103.994003],
     "price": 470,
     "date": "2017-07-03",
-    "days_until": 29
+    "days_until": 29,
+    "image": "http://www.livinginsingapore.org/wp-content/uploads/2016/05/24939069370_693bf7b49d_k.jpg"
+    "trip": "https://www.tripadvisor.com/Tourism-g294262-Singapore-Vacations.html"
  },
   {
     "airport": "Sydney Kingsford-Smith Airport",
