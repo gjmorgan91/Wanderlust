@@ -440,7 +440,7 @@ eqfeed_callback(
     "coordinates": [37.61899948120117,-122.375],
     "price": 100,
     "date": "2017-08-06",
-    "days_until": 70,
+    "days_until": 20,
     "image": "http://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1444253482/DG2015-san-francisco.jpg?itok=MdRJm2Zo"
  },
   {
