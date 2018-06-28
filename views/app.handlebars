@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .search {
+        position: absolute;
+        z-index:1;
+        background: white;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 10px;
+        padding: 10px 10%;
+        box-shadow: 2px 2px 3px #888888;
+        border: 1px solid #c9cbce;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="search container" id="searchBox">
+      <div class="row justify-content-center">
+        <div id="errorBar">
+          <h5>ERROR, YOU BASTARD!</h5>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div id="locationField">Departing City:
+            <input id="autocomplete" placeholder="Enter a city" type="text"></input>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          Trips Within
+          <div class="dropdown" style="display:inline-block;">$:
+            <input id="lowEndUI" class="budget" type="text" placeholder="Budget Min"></input>
+            $:<input id="highEndUI" class="budget" type="text" placeholder="Budget Max"></input>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="dropdown" style="display:inline-block;">
+            <form action="/action_page.php">Depart:<input id="departUI" type="date"></form>
+            <form action="/action_page.php">Return:<input id="returnUI" type="date"></form>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <button onclick="subVar()">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <style> /* style for the search bar */
+    #errorBar {
+      background-color: red;
+      display: none;
+    }
+    </style>
+
+    <div class="resultsbar" id="resultsbar">
+      <div class="resultscontent">
+        <h3>Result List</h3> 
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <!-- TEMP until we switch to handlebars -->
+        <div class="result"> 
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <div class="result">
+          <h5>Result Name</h5>
+          <p>Some text about that result</p>
+        </div>
+        <!-- End the temp section -->
+      </div>
+    </div>
+
+    <style>
+      .resultsbar{
+        position: absolute;
+        z-index:1;
+        background: white;
+        width: 20%;
+        height: 80%;
+        margin-left: 80%;
+        margin-top: 75px;
+        box-shadow: 2px 2px 3px #888888;
+        border: 1px solid #c9cbce;
+        overflow: auto;
+        display: none;
+      }
+      .resultscontent {
+        padding: 5px;
+      }
+      .result {
+        padding: 5px;
+        border: 1px dashed;
+        margin-top: 5px;
+      }
+    </style>
+
+    <!-- Log In window that displays when the page loads -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div id="modalHeader">
+          <h3 id="popTitle">Welcome, let's Wanderlust!</h3>
+        </div>
+        <div class="LogSign" id="modalSignIn" style="width: 235px; display: table-cell; padding: 10px">
+          <div id="forms" style="text-align: center">
+            <form><input type="text" value="User Name" class="formInput"></form>
+            <form><input type="text" value="Password" class="formInput"></form>
+          </div>
+          <button class="logInBtn" style="width: 100%" onclick="hideModal(1)">Log In</button>
+        </div>
+        <div class="LogSign" id="modalNewAcc" style="width: 235px; display: table-cell; padding: 10px">
+          <div id="forms" style="text-align: center; width:100%">
+            <form><input type="text" value="First Name" class="formInput"></form>
+            <form><input type="text" value="Last Name" class="formInput"></form>
+            <form><input type="text" value="Email" class="formInput"></form>
+            <form><input type="text" value="User Name" class="formInput"></form>
+           <form><input type="text" value="Password" class="formInput"></form>
+          </div>
+          <button class="logInBtn" style="width: 100%" onclick="hideModal(1)">Create Account</button>
+        </div>
+      </div>
+    </div>
+    <!-- Form to fill out before flights can be shwon -->
+    <div id="myModal2" class="modal2" style="display: none">
+      <div class="modal-content">
+        <div id="modalHeader">
+          <h3 id="popTitle">Plan your flight.</h3>
+        </div>
+        <div id="forms" style="text-align: center; width:100%">
+          <div id="planner budget">
+            <form id="budgetIn">
+              <div>$:
+              <input id="lowEnd" type="text" placeholder="Low End">
+              </div>
+              <div>$:
+              <input id="highEnd" type="text" placeholder="High End">
+              </div>
+            </form>
+          </div>
+          <div id="planner date">
+            <form action="/action_page.php">Depart:<input id="depart" type="date"></form>
+            <form action="/action_page.php">Return:<input id="return" type="date"></form>
+          </div>
+        </div>
+        <button class="planner submit" onclick="hideModal(2)" style="width: 100%">Show me trips!</button>
+      </div>
+    </div>
+
+    <style>
+      /* The Modal (background) */
+      .modal, .modal2 {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: #f0eceb; /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      /* Modal Content/Box */
+      .modal-content {
+          background-color: #f0eceb;
+          margin: 15% auto; /* 15% from the top and centered */
+          padding: 20px;
+          border: 1px solid #888;
+          width: 40%; /* Could be more or less, depending on screen size */
+      }
+      
+      .LogSign{
+        /**border: 1px solid #283018;**/
+      }
+      .formInput {
+        width: 100%;
+        color: #cecece;
+      }
+      #popTitle {
+        font-size: 35px;
+        width: 100%; 
+        height: 100%; 
+        text-align: center;
+      }
+    </style>
+
+    <div id="map"></div>
+
+    <script>
+      var map;
+      var depPort;
+      var flightDest;
+      var flightArray = [];
+      var flightDest = [ //temp hardcoded destinations
+          {lat: 37.772, lng: -122.214},
+          {lat: 21.291, lng: -157.821},
+          {lat: -18.142, lng: 178.431},
+          {lat: -27.467, lng: 153.027},
+          {lat: -40.762021, lng: -62.578080},
+          {lat: 39.626641, lng: 2.877364},
+          {lat: 59.614856, lng: 6.217208},
+          {lat: 39.355332, lng: 125.748454},
+          {lat: 63.775087, lng: -18.392168}
+        ];
+      var bounds;
+      var autocomplete;
+      var city;
+      var places;
+      var cityState = false;
+      var infoWindow;
+      var infowindow;
+
+      //events that happen apart from the map
+      var searchCon = document.getElementsByClassName("search container"); 
+      // Get the modal
+      //var modal = document.getElementById('myModal');
+      var modal2 = document.getElementById('myModal2');
+      var critCont = document.getElementById('searchBox');
+      var resBar = document.getElementById('resultsbar');
+      var error = document.getElementById('errorBar');
+      
+      window.onload = function() { //displays the first pop up on the page loading
+        console.log("is this working?");
+        modal2.style.display = "block";
+      };
+
+      hideModal = function(type) { //toggles the pop ups
+        console.log("button click");
+        if (type == 1) {
+          modal.style.display = "none";
+          modal2.style.display = "block";
+        } else if (type == 2) {
+          setVar();
+          console.log(isFormComplete());
+           //if (isFormComplete()) {
+            modal2.style.display = "none";
+            critCont.style.display = "block";
+            //resBar.style.display = "block";
+            //input.style.display = "block";
+            setVar();
+           //} else {
+           //}
+        }
+      }
+
+      //setting the inputs from the forms
+      var minBudget;
+      var maxBudget;
+
+      var dateDep;
+      var yearDep;
+      var monthDep;
+      var dayDep;
+
+      var dateRet;
+      var yearRet;
+      var monthRet;
+      var dayRet;
+    
+      subVar = function() {
+        if (isFormComplete()) { //need to fix so that it gets the whole value and it currently breaks after having broken once, it will not rewrite the values into the var
+          console.log(isFormComplete());
+          minBudget = document.getElementById('lowEndUI').value;
+          maxBudget = document.getElementById('highEndUI').value;
+          dateDep = document.getElementById('departUI').value;
+          dateRet = document.getElementById('returnUI').value;
+          error.style.display = "none";
+        } else {
+          error.style.display = "block";
+        }
+      }
+
+      setVar = function() {
+        minBudget = document.getElementById('lowEnd').value;
+        maxBudget = document.getElementById('highEnd').value;
+        dateDep = document.getElementById('depart').value;
+        dateRet = document.getElementById('return').value;
+        setDates();
+        //console.log(yearDep);
+
+        document.getElementById('lowEndUI').value = minBudget;
+        document.getElementById('highEndUI').value = maxBudget;
+        document.getElementById('departUI').value = dateDep;
+        document.getElementById('returnUI').value = dateRet;
+      }
+
+      isFormComplete = function() {
+        if (minBudget!="" || maxBudget!="" || dateDep!="" || dateRet!="") {
+          if (minBudget<=maxBudget){
+            console.log(minBudget);
+            console.log(maxBudget);
+            if (yearDep<=yearRet){
+              //console.log("year is good");
+              if (monthDep<=monthRet) {
+                //console.log("month is good");
+                if (dayDep<=dayRet) {
+                  //console.log("input looks good");
+                  return true;
+                }
+              }
+            }
+          }
+        }
+        console.log("input looks bad");
+        return false;
+      }
+
+      setDates = function() {
+        for (var i=0; i<dateDep.length; i++) {
+          if (i<4) {
+            yearDep = new String();
+            yearRet = new String();
+            yearDep += yearDep.toString(dateDep.charAt(i));
+            yearRet += yearRet.toString(dateRet.charAt(i));
+            console.log(yearDep);
+          } else if (i>4 && i<7) {
+            monthDep = new String();
+            monthRet = new String();
+            monthDep += monthDep.toString(dateDep.charAt(i));
+            monthRet += monthRet.toString(dateRet.charAt(i));
+          } else if (i>7) {
+            dayDep = new String();
+            dayRet = new String();
+            dayDep += dayDep.toString(dateDep.charAt(i));
+            dayRet += dayRet.toString(dateRet.charAt(i));
+          }
+        }
+      }
+
+      function initMap() { //the search function for getting an airport
+        map = new google.maps.Map(document.getElementById('map'), {
+          //center: {lat: 32.729, lng: -117.195},
+          center: {lat: 40.72, lng: -95.11},
+          zoom: 4,
+          mapTypeId: 'terrain',
+          streetViewControl: false,
+          mapTypeControl: false,
+          zoomControl: false,
+          scrollwheel: false,
+          panControl: false
+        });
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setZoom(9);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+          findAirports(map.getCenter());
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+          //do nothing then, need user input for a city
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          // tempPos = new google.maps.LatLng(pos);
+          // infoWindow.setPosition(tempPos);
+          // infoWindow.setContent(browserHasGeolocation ?
+          //                       'Error: The Geolocation service failed.' :
+          //                       'Error: Your browser doesn\'t support geolocation.');
+          // infoWindow.open(map);
+        }
+
+        function findAirports(pos) { //want to make the map return airports near the current location to pick from
+          //var searchReturns = new google.maps.
+        }
+
+        // Create the autocomplete object and associate it with the UI input control.
+        // Restrict the search to the default country, and to place type "cities".
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */ (
+                document.getElementById('autocomplete')), {
+              types: ['(cities)'],
+            });
+        places = new google.maps.places.PlacesService(map);
+
+        autocomplete.addListener('place_changed', onPlaceChanged);
+
+        if (cityState) {
+          console.log("i wanna click");
+          city.addListener('click', function(){
+            drawMap();
+          });
+        }
+      
+      } //initMap ends here
+
+      // When the user selects a city, get the place details for the city and
+      // zoom the map in on the city.
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        if (place.geometry) {
+          map.panTo(place.geometry.location);
+          map.setZoom(9);
+          search();
+        } else {
+          document.getElementById('autocomplete').placeholder = 'Enter a city';
+        }
+      }
+
+      // Search for airports in the selected city, within the viewport of the map.
+      function search() {
+        var search = {
+          bounds: map.getBounds(),
+          types: ['cities']
+        };
+
+        places.nearbySearch(search, function(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            clearMarkers();
+            var result = results[0];
+            // Create a marker for each airport found, and
+              // Use marker animation to drop the icons incrementally on the map.
+              city = new google.maps.Marker({
+                position: result.geometry.location,
+                animation: google.maps.Animation.DROP,
+              });
+              city.setMap(map);
+              // If the user clicks a hotel marker, show the details of that hotel
+              // in an info window.
+              city.placeResult = result;
+              city.addListener('click', function(){
+                drawMap();
+                console.log("click the marker");
+              });
+              cityState = true;
+          }
+        });
+      }
+
+      function clearMarkers() {
+        //for (var i = 0; i < airports.length; i++) {
+          //if (airports[i]) {
+            //city.setMap(null);
+          //} once i figure out how to remove them...
+        //}
+        city = [];
+      }
+
+      function drawMap() { //function to call line drawing after user input is taken
+      if (city != null) { //make sure there is a departing point
+        for (var i=0; i<flightDest.length; i++) {
+          var flightPlanCoordinates = [ //set departing and destination coords
+            {lat: city.position.lat.call(), lng: city.position.lng.call()},
+            {lat: flightDest[i].lat, lng: flightDest[i].lng} ];
+          var flightPath = new google.maps.Polyline({ //make the polylines
+            path: flightPlanCoordinates,
+            geodesic: true, //line or curves!!
+            strokeColor: '#283018',
+            strokeOpacity: 0.9,
+            strokeWeight: 2
+          });
+          flightPath.setMap(map); //set flights to the map
+          flightArray.push(flightPath); //add flights to the array
+          var flightBounds = map.getBounds();
+          flightBounds.extend(flightDest[i]);
+          map.fitBounds(flightBounds); //need to fix bounds to not zoom so much
+          map.setZoom(2);
+        }
+          
+        for (k in flightArray) { //changes opacity on all lines but the hovered one
+          flightArray[k].addListener('mouseover', function(){ //function for the lines dimming when one is hovered
+            for (var j=0; j<flightArray.length; j++) {
+              flightArray[j].setOptions({strokeOpacity:0.2});
+              this.setOptions({strokeOpacity:1.0});
+            }
+          });
+          flightArray[k].addListener('mouseout', function(){ //reset line opacity after mouse leaves
+            for (var i=0; i<flightArray.length; i++) {
+              flightArray[i].setOptions({strokeOpacity:1.0});
+              this.setOptions({strokeOpacity:1.0});
+            }
+          });
+        }
+
+        var markerArray= []; //object of all the markers
+        
+        for (var i=0; i<flightDest.length; i++) { //loops through all destination
+          var marker = new google.maps.Marker({ //creates a marker at each destination
+            position: flightDest[i],
+            map: map,
+            animation: google.maps.Animation.DROP
+          });
+          markerArray.push(marker); //add the marker to the array
+          marker.setMap(map); //applies the marker to the map
+        }
+
+        for (i in markerArray) { //makes the map zoom on the clicked marker
+          bounds = map.getBounds();
+          center = map.getCenter();
+          
+          if (map.getZoom() != 8) { //checks that the map is zoomed out
+            var marker = markerArray[i]; //gets the clicked marker
+            google.maps.event.addListener(marker,'click',function(){
+              map.setZoom(8); //zooms in the map
+              tempCoord = new google.maps.LatLng({lat: this.getPosition().lat.call()+0.6, lng: this.getPosition().lng.call()+0.5}); //builds a new center for the map
+              map.setCenter(tempCoord); //sets the center of the map
+              //infowindow.open(map, this); //open the pop up on the marker
+              marker.showInfoWindow();
+            });
+          }
+
+          //infowindow content set here
+        var contentString = 'this is a bunch of rando information about the place I am clicking on until I can get Place to give it to me for da free';
+        infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+          
+         google.maps.event.addListener(infowindow, 'closeclick', function(){ //if the pop up is closed
+          map.fitBounds(bounds); //resets the bounds of the map
+          var center = map.getCenter(); //gets the center again
+          center = new google.maps.LatLng(center.lat.call(),center.lng.call()+35); 
+          map.setCenter(center); //sets the center
+          map.setZoom(2);
+         });
+
+        }
+      }
+
+      // For each place, get the icon, name and location.
+      //var bounds = new google.maps.LatLngBounds();
+
+      // Get the place details for a hotel. Show the information in an info window,
+      // anchored on the marker for the hotel that the user selected.
+      function showInfoWindow() {
+        var marker = this;
+        places.getDetails({placeId: marker.placeResult.place_id},
+            function(place, status) {
+              if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                return;
+              }
+              infoWindow.open(map, marker);
+              buildIWContent(place);
+            });
+      }
+
+    } //end of script area
+  
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDb7SwbRhXn9FiIl_9d6xjGqdg7Ktmca2A&libraries=places&callback=initMap"
+         async defer></script>
+  </body>
+</html>

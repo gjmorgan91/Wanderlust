@@ -1,0 +1,173 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search.container {
+  position: absolute;
+  height: 10%;
+  z-index:1;
+  background: white;
+  width: 100%;
+/*  margin-left: 10%;
+  margin-top: 10px;*/
+  padding-left: 0%;
+  padding-right: 1%;
+  padding-top: 0%;
+  box-shadow: 2px 2px 3px #888888;
+  border-bottom: 3px solid #dd7a36;
+  display: none;
+}
+
+.search.container {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.validate {
+  margin-bottom: 5px; 
+}
+
+.input-field {
+  display: inline;
+}
+
+#errorBar {
+  background-color: red;
+  display: none;
+}
+
+/* The Modal (background) */
+.modal1, .modal2, .mapModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #f0eceb; /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+#modal1Cont {
+  width: 35% !important;
+}
+/* Modal Content/Box */
+.modal-content {
+  background-color: #f0eceb;
+  margin: 7% auto; /* 15% from the top and centered */
+  padding: 0px;
+  border: 1px solid #888;
+  width: 25%; /* Could be more or less, depending on screen size */
+}
+
+#modalHeader {
+  background-color: #71af88;
+  margin-top: -20px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: auto;
+  color: #FFFFFF;
+  border-bottom: 3px solid #dd7a36;
+}
+
+#headerName {
+  background-color: #71af88;
+  color: #FFFFFF;
+  height: 100%;
+  width: ;
+  text-align: center;
+}
+
+#forms {
+  padding: 20px;
+}
+
+.LogSign{
+  /**border: 1px solid #283018;**/
+}
+.formInput {
+  width: 100%;
+  color: #cecece;
+}
+#popTitle {
+  font-size: 35px;
+  width: 100%; 
+  height: 100%; 
+  text-align: center;
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+#depart, #return {
+  color: #a5a5a5;
+}
+
+.form-sectionhead {
+  font-weight: 500;
+  font-size: larger;
+  padding: 0px;
+}
+
+#hider {
+  position: absolute;
+  z-index: 1;
+  margin-top: 18%;
+  margin-left: 10%;
+}
+
+#hideButton {
+  width: 30px;
+  height: 30px;
+}
+
+#submitButton {
+  margin-top: 5%;
+}
+
+
+#IWHeader {
+  background-color: #71af88;
+  text-align: center;
+  color: white;
+  font-size: larger;
+  width: 270px;
+  height: 20px;
+}
+
+#IWDetails, #IWFlight {
+  border-bottom: 2px solid #c9cbce; 
+  padding-bottom: 3%;
+}
+
+#IWBtns {
+  margin-top: 5%;
+}
+
+#IWHide {
+  text-align: right;
+}
+
+#bikeBtn, #trafficBtn, #transitBtn {
+  padding: 3px !important;
+}
+
+.gm-iv-address {
+  height: auto !important;
+}
+
+#lowEndLabel, #highEndLabel {
+  top: 0.0rem !important;
+}
