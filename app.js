@@ -6,8 +6,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
-
-
+var router = express.Router();
 
 // variables set up to link to js files that will load each page
 var index = require('./routes/index');

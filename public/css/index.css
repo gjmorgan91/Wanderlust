@@ -10,6 +10,10 @@ html, body {
   padding: 0;
 }
 
+.search {
+  margin: auto;
+}
+
 .search.container {
   position: absolute;
   height: 10%;
@@ -28,7 +32,6 @@ html, body {
 
 .search.container {
   width: 100%;
-  margin-left: 0%;
 }
 
 .validate {
