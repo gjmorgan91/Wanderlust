@@ -1,20 +1,2 @@
 {
-  "name": "Wanderlust",
-  "description": "Project for COGS 121",
-  "version": "0.0.1",
-  "author": "Greg Morgan",
-
-  "repository": {
-  	"type": "git",
-  	"url": "https://github.com/gjmorgan91/cogs121-project"
-  },
-  "license": "MIT",
-
-  "main": "app.js",
-  "dependencies": {
-    "express": "3.x"
-  },
-  "engines": {
-  	"node": "0.10.x"
-  }
 }
